@@ -1,0 +1,41 @@
+@import 'src/assets/sass/abstracts/variables';
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 6.4rem;
+  border-bottom: 1px solid $color-light-2;
+  padding: 1rem;
+
+  &__title {
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 3rem;
+      height: 3rem;
+      margin-right: 1rem;
+    }
+
+    &-text {
+      font-size: 2rem;
+      color: $color-dark;
+      font-weight: 500;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 1.5rem;
+    background-color: $color-light-1;
+    cursor: pointer;
+
+    &-text {
+      margin-left: 1rem;
+      margin-right: 1.2rem;
+      font-size: 1.4rem;
+      color: $color-gray-2;
+    }
+  }
+}
