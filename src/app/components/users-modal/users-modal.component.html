@@ -1,0 +1,75 @@
+<div class="modal" *ngIf="modal">
+  <div class="modal__card">
+    <div class="modal__title">
+      <h2 class="title--secondary">
+        {{newUser ? 'Agregar nuevo usuario' : 'Editar usuario'}}
+      </h2>
+    </div>
+    <div class="modal__content">
+      <h3 class="title--tertiary">Foto de perfil</h3>
+      <div class="user-image">
+        <div class="user-image__upload">
+          <img *ngIf="newUser" src="assets/img/icons/user.svg" alt="">
+          <img class="user-image-exist" *ngIf="!newUser" [src]="user.picture" alt="">
+        </div>
+        <div class="user-image__information">
+          <p>JPG, PNG | Tamaño de 300px x 300px</p>
+          <button class="btn btn--primary">
+            Subir foto
+          </button>
+          <button *ngIf="!newUser" class="btn btn--primary-text">
+            Quitar foto actual
+          </button>
+        </div>
+      </div>
+      <h3 class="title--tertiary">Información básica</h3>
+      <form action="" #form="ngForm">
+        <div class="form-row">
+          <input [(ngModel)]="user.name" name="name" placeholder="Nombre" type="text" class="input">
+          <input [(ngModel)]="user.fathersLastName" name="fathersLastName" type="text" placeholder="Apellido Paterno" class="input">
+        </div>
+        <div class="form-row">
+          <input type="text" [(ngModel)]="user.mothersLastName" name="mothersLastName" placeholder="Apellido Materno" class="input">
+          <input type="text" [(ngModel)]="user.email" name="email" placeholder="Correo electrónico" class="input">
+        </div>
+        <div class="form-row">
+          <div class="group">
+            <label for="">Rol</label>
+            <select [(ngModel)]="user.roleId" class="input input__select" name="active">
+              <option
+                *ngFor="let rol of roles"
+                class="input__select-option"
+                [value]="rol.id">
+                {{rol.position}}
+              </option>
+            </select>
+          </div>
+          <div class="switch">
+            <span class="switch__label">Inactivo</span>
+            <img
+              (click)="user.active = !user.active"
+              *ngIf="user.active"
+              class="switch__icon"
+              src="assets/img/icons/toggle_on.svg"
+              alt="">
+            <img
+            (click)="user.active = !user.active"
+              *ngIf="!user.active"
+              class="switch__icon"
+              src="assets/img/icons/toggle_off.svg"
+              alt="">
+            <span class="switch__label">Activo</span>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal__actions">
+      <button class="btn btn--primary-text" (click)="closeModal()">
+        Cancelar
+      </button>
+      <button class="btn btn--primary" (click)="saveUser()">
+        Guardar usuario
+      </button>
+    </div>
+  </div>
+</div>

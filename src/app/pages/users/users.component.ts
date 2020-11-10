@@ -8,7 +8,9 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class UsersComponent implements OnInit {
   users = [];
+  newUser = true;
   roles = [];
+  modal = false;
   headers = [
     {
       name: 'Foto'
@@ -32,6 +34,16 @@ export class UsersComponent implements OnInit {
       name: 'Status'
     }
   ];
+  user = {};
+  defaultUser = {
+    picture: 'https://www.hardiagedcare.com.au/wp-content/uploads/2019/02/default-avatar-profile-icon-vector-18942381.jpg',
+    name: '',
+    fathersLastName: '',
+    mothersLastName: '',
+    email: '',
+    roleId: 1,
+    active: true
+  };
 
   constructor(private apiService: ApiService) {
     this.apiService.getUsers().subscribe(res => {
@@ -45,17 +57,33 @@ export class UsersComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getRol(rolId) {
-    let rol = this.roles.find(rol => rol.id === rolId);
-    return rol.position;
-  }
-
   changeStatus(user) {
     user.active = !user.active;
   }
 
   deleteUser(index) {
     this.users.splice(index, 1);
+  }
+
+  addUser() {
+    this.user = Object.assign({},this.defaultUser);
+    this.modal = true;
+    this.newUser = true;
+  }
+
+  closeModal(event) {
+    this.modal = !event;
+  }
+
+  editUser(user) {
+    this.user = user;
+    this.modal = true;
+    this.newUser = false;
+  }
+
+  saveUser(event) {
+    this.modal = false;
+    this.users.unshift(Object.assign({}, event));
   }
 
 }

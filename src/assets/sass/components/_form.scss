@@ -1,14 +1,18 @@
 .form--inline {
   display: flex;
 }
-
+label {
+  font-size: 1.4rem;
+  color: $color-gray-3;
+  display: block;
+}
 .input {
   margin: 0.5rem 0;
   display: inline-block;
   align-items: center;
   border: 1px solid $color-light-2;
   padding: 1.2rem;
-  background-color: white;
+  background-color: $color-light-1;
   font-size: 1.6rem;
   position: relative;
 

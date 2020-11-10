@@ -1,0 +1,70 @@
+@import 'src/assets/sass/abstracts/variables';
+.form-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input, .switch, .group {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  width: 48%;
+}
+
+.input__select {
+  margin-top: 0;
+  width: 100%;
+}
+
+.title--tetiary {
+  margin-bottom: 2rem;
+}
+
+.switch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__label {
+    color: $color-gray-3;
+  }
+
+  &__icon {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+}
+.user-image {
+  display: flex;
+  align-items: center;
+  margin: 2rem 0;
+  position: relative;
+
+  &__upload {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 100%;
+    position: relative;
+    background-color: $color-gray;
+    text-align: center;
+    margin-right: 4rem;
+    & img {
+      font-size: 3rem;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+  &__information p {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+
+  &-exist {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}

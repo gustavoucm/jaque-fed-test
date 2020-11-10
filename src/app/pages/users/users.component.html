@@ -10,7 +10,7 @@
       </div>
       Previsualizar
     </button>
-    <button class="btn btn--outline btn--primary">
+    <button class="btn btn--outline btn--primary" (click)="addUser()">
       <div class="btn__icon">
         <img src="assets/img/icons/add.svg" alt="">
       </div>
@@ -66,7 +66,7 @@
       <td>{{user.fathersLastName}}</td>
       <td>{{user.mothersLastName}}</td>
       <td>{{user.email | truncateText}}</td>
-      <td>{{getRol(user.roleId)}}</td>
+      <td>{{roles[user.roleId - 1] ? roles[user.roleId - 1].position : ''}}</td>
       <td>
         <img
           (click)="changeStatus(user)"
@@ -83,8 +83,16 @@
       </td>
       <td>
           <div class="datatable__actions">
-            <img (click)="deleteUser(i)" class="action" src="assets/img/icons/trash-2.svg" alt="">
-            <img class="action" src="assets/img/icons/edit.svg" alt="">
+            <img
+              (click)="deleteUser(i)"
+              class="action"
+              src="assets/img/icons/trash-2.svg"
+              alt="">
+            <img
+              (click)="editUser(user)"
+              class="action"
+              src="assets/img/icons/edit.svg"
+              alt="">
           </div>
       </td>
     </tr>
@@ -104,3 +112,11 @@
     Siguiente
   </div>
 </div>
+
+<app-users-modal
+  (closeEvent)="closeModal($event)"
+  (save)="saveUser($event)"
+  [user]="user"
+  [modal]="modal"
+  [newUser]="newUser">
+</app-users-modal>
