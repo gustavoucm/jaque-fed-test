@@ -1,0 +1,123 @@
+@import 'src/assets/sass/abstracts/variables';
+%flex-center {
+  display: flex;
+  align-items: center;
+}
+.users__header, .users__list {
+  background-color: #FFF;
+  border: 1px solid $color-light-2;
+}
+.users{
+  &__list {
+    margin-top: 2.4rem;
+  }
+
+  &__header {
+    padding: 3.4rem 4rem;
+    @extend %flex-center;
+    justify-content: space-between;
+  
+    &-actions .btn:first-child {
+      margin-right: 2rem;
+    }
+
+    &-form {
+      padding: 2.6rem 3.6rem;
+    }
+  }
+
+  &__filters {
+    @extend %flex-center;
+
+    .input--select {
+      margin-right: 1.5rem;
+    }
+  }
+}
+.user__picture{
+  width: 4rem;
+  height: 4rem;
+  border-radius: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.title--secondary {
+  margin-bottom: 1rem;
+}
+
+form {
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.style-view img{
+  margin-left: 1rem;
+}
+
+.datatable {
+  width: 100%;
+  padding: 1.5rem;
+  border-collapse: collapse;
+  tr:first-child * {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid $color-light-2;
+    border-top: 1px solid $color-light-2;
+  }
+  td, th {
+    padding: 1rem 1.5rem;
+    font-size: 1.4rem;
+    text-align: left;
+  }
+  td {
+    color: $color-gray-2;
+    border-bottom: 1px solid $color-light-2;
+  }
+
+  th {
+    color: $color-gray-3;
+  }
+
+  &__actions {
+    visibility: hidden;
+  }
+
+  &__row:hover {
+    background-color: $color-light-2;
+  }
+
+  &__row:hover &__actions {
+    visibility: visible;
+  }
+}
+
+.pagination {
+  @extend %flex-center;
+  justify-content: center;
+  margin-top: 6rem;
+  font-size: 1.4rem;
+  span {
+    margin: 0.6rem;
+    color: $color-gray-1;
+  }
+  .back, .next {
+    color: $color-primary;
+    margin: 2rem;
+  }
+
+  .current-page {
+    padding: 0.5rem 1rem;
+    border-radius: 100%;
+    color: $color-white;
+    background-color: $color-blue ;
+  }
+}
+
+.toggle-status:hover, .action:hover {
+    cursor: pointer;
+}
+.action:first-child {
+  margin-right: 1rem;
+}

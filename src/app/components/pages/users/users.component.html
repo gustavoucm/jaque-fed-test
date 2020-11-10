@@ -1,1 +1,106 @@
-<p>users works!</p>
+<div class="users__header">
+  <div class="user__header-info">
+    <h2 class="title--secondary">Usuarios</h2>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+  </div>
+  <div class="users__header-actions">
+    <button class="btn btn--primary-outline">
+      <div class="btn__icon">
+        <img src="assets/img/icons/eye.svg" alt="">
+      </div>
+      Previsualizar
+    </button>
+    <button class="btn btn--outline btn--primary">
+      <div class="btn__icon">
+        <img src="assets/img/icons/add.svg" alt="">
+      </div>
+      Agregar nuevo usuario
+    </button>
+  </div>
+</div>
+
+<div class="users__list">
+  <div class="users__header-form">
+    <form class="form--inline" action="#">
+      <div class="input input--icon">
+        <img class="input--icon__icon" src="assets/img/icons/search.svg" alt="">
+        <input type="text" class="input--icon__field" placeholder="Busqueda">
+      </div>
+      <div class="users__filters">
+        <select class="input input--select" name="sort" id="user_sort">
+          <option class="input__select-option" value="asc">8 por página</option>
+          <option class="input__select-option" value="desc">16 por página</option>
+        </select>
+
+        <select class="input input--select" name="sort" id="user_sort">
+          <option class="input__select-option" value="asc">A - Z</option>
+          <option class="input__select-option" value="desc">Z - A</option>
+        </select>
+  
+        <select class="input input--select" name="sort" id="rol_sort">
+          <option class="input__select-option" value="asc">Todos</option>
+          <option class="input__select-option" value="desc">Rol</option>
+        </select>
+  
+      <div class="style-view">
+        <img src="assets/img/icons/list.svg" alt="">
+        <img src="assets/img/icons/square.svg" alt="">
+      </div>
+      </div>
+    </form>
+  </div>
+  <table class="datatable">
+    <tr class="datatable__header">
+      <th></th>
+      <th class="datatable__header-item" *ngFor="let header of headers;">
+        {{header.name}}
+      </th>
+      <th></th>
+    </tr>
+    <tr class="datatable__row" *ngFor="let user of users; let i = index;">
+      <td><img src="assets/img/icons/icon-drag.svg" alt=""></td>
+      <td>
+        <img class="user__picture" [src]="user.picture" alt="">
+      </td>
+      <td >{{user.name}}</td>
+      <td>{{user.fathersLastName}}</td>
+      <td>{{user.mothersLastName}}</td>
+      <td>{{user.email | truncateText}}</td>
+      <td>{{getRol(user.roleId)}}</td>
+      <td>
+        <img
+          (click)="changeStatus(user)"
+          class="toggle-status"
+          *ngIf="user.active"
+          src="assets/img/icons/toggle_on.svg"
+          alt="">
+        <img
+          (click)="changeStatus(user)"
+          class="toggle-status"
+          *ngIf="!user.active"
+          src="assets/img/icons/toggle_off.svg"
+          alt="">
+      </td>
+      <td>
+          <div class="datatable__actions">
+            <img (click)="deleteUser(i)" class="action" src="assets/img/icons/trash-2.svg" alt="">
+            <img class="action" src="assets/img/icons/edit.svg" alt="">
+          </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div class="pagination">
+  <div class="back">
+    Anterior
+  </div>
+  <span>1</span>
+  <span class="current-page">2</span>
+  <span>3</span>
+  <span>4</span>
+  <span>5</span>
+  <div class="next">
+    Siguiente
+  </div>
+</div>

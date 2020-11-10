@@ -2,3 +2,14 @@
   font-family: 'Circular Std Book';
   src: url('../../fonts/circular_std_book/CircularStd-Book.otf');
 }
+
+.title--secondary {
+  color: $color-dark;
+  font-weight: 500;
+  font-size: 2rem;
+}
+
+p {
+  font-size: 1.4rem;
+  color: $color-gray-1;
+}
