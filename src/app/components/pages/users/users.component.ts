@@ -12,7 +12,8 @@ export class UsersComponent implements OnInit {
   roles = [];
   modal = false;
   rolValue = 0;
-  sortValue = 'desc';
+  sortValue = 'asc';
+  alert = false;
   search = '';
   headers = [
     {
@@ -87,6 +88,7 @@ export class UsersComponent implements OnInit {
   saveUser(event) {
     this.modal = false;
     this.users.unshift(Object.assign({}, event));
+    this.alert = true;
   }
 
 }

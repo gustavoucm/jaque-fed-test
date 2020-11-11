@@ -85,15 +85,15 @@
 </div>
 
 <div class="pagination">
-  <div class="back">
+  <div class="pagination__back">
     Anterior
   </div>
   <span>1</span>
-  <span class="current-page">2</span>
+  <span class="pagination__current">2</span>
   <span>3</span>
   <span>4</span>
   <span>5</span>
-  <div class="next">
+  <div class="pagination__next">
     Siguiente
   </div>
 </div>
@@ -105,3 +105,9 @@
   [modal]="modal"
   [newUser]="newUser">
 </app-users-modal>
+
+<div class="alert alert--primary" *ngIf="alert">
+  <img class="alert__icon" src="assets/img/icons/check-icon.svg" alt="">
+  Se guardó el usuario exitosamente
+  <img (click)="alert = false" class="alert__close" src="assets/img/icons/icon-close.svg" alt="">
+</div>

@@ -102,12 +102,12 @@ form {
     margin: 0.6rem;
     color: $color-gray-1;
   }
-  .back, .next {
+  &__back, &__next {
     color: $color-primary;
     margin: 2rem;
   }
 
-  .current-page {
+  &__current {
     padding: 0.5rem 1rem;
     border-radius: 100%;
     color: $color-white;

@@ -1,0 +1,46 @@
+.alert {
+  padding: 1.2rem 4.4rem 1.2rem 2.4rem;
+  border-radius: 4px;
+  font-size: 1.4rem;
+  position: absolute;
+  top: 2rem;
+  margin: 0 auto;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 43rem;
+  animation: upDown 0.3s ease;
+
+  &__icon {
+    margin-right: 1.5rem;
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  &__close {
+    width: 0.9rem;
+    height: 0.9rem;
+    position: absolute;
+    right: 1.6rem;
+    top: 1.6rem;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  
+  &--primary {
+    background-color: $color-success;
+    color: $color-white;
+  }
+}
+
+@keyframes upDown {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 2rem;
+  }
+}
