@@ -11,6 +11,9 @@ import { UsersModalComponent } from './components/users-modal/users-modal.compon
 import { DashboardComponent } from './layout/dashboard/dashboard.component';
 import { UsersComponent } from './pages/users/users.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SearchUserPipe } from './pipes/search-user.pipe';
+import { SortUserPipe } from './pipes/sort-user.pipe';
+import { StatusUserPipe } from './pipes/status-user.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     DashboardComponent,
     UsersComponent,
     TruncateTextPipe,
-    UsersModalComponent
+    UsersModalComponent,
+    SearchUserPipe,
+    SortUserPipe,
+    StatusUserPipe
   ],
   imports: [
     BrowserModule,

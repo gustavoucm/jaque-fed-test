@@ -24,22 +24,25 @@
     <form class="form--inline" action="#">
       <div class="input input--icon">
         <img class="input--icon__icon" src="assets/img/icons/search.svg" alt="">
-        <input type="text" class="input--icon__field" placeholder="Busqueda">
+        <input [(ngModel)]="search" name="search" type="text" class="input--icon__field" placeholder="Busqueda">
       </div>
       <div class="users__filters">
-        <select class="input input--select" name="sort" id="user_sort">
-          <option class="input__select-option" value="asc">8 por página</option>
-          <option class="input__select-option" value="desc">16 por página</option>
+        <select class="input input--select" name="pagination" id="user_sort">
+          <option class="input__select-option" value="8">8 por página</option>
         </select>
 
-        <select class="input input--select" name="sort" id="user_sort">
+        <select [(ngModel)]="sortValue" class="input input--select" name="sortValue" id="sortValue">
           <option class="input__select-option" value="asc">A - Z</option>
           <option class="input__select-option" value="desc">Z - A</option>
         </select>
   
-        <select class="input input--select" name="sort" id="rol_sort">
-          <option class="input__select-option" value="asc">Todos</option>
-          <option class="input__select-option" value="desc">Rol</option>
+        <select [(ngModel)]="rolValue" class="input input--select" name="rolValue" id="rolValue">
+          <option class="input__select-option" [value]="0">
+            Todos
+          </option>
+          <option *ngFor="let rol of roles" class="input__select-option" [value]="rol.id">
+            {{rol.position}}
+          </option>
         </select>
   
       <div class="style-view">
@@ -57,7 +60,7 @@
       </th>
       <th></th>
     </tr>
-    <tr class="datatable__row" *ngFor="let user of users; let i = index;">
+    <tr class="datatable__row" *ngFor="let user of users | sortUser : sortValue | statusUser : rolValue | searchUser : search; let i = index;">
       <td><img src="assets/img/icons/icon-drag.svg" alt=""></td>
       <td>
         <img class="user__picture" [src]="user.picture" alt="">
@@ -68,31 +71,13 @@
       <td>{{user.email | truncateText}}</td>
       <td>{{roles[user.roleId - 1] ? roles[user.roleId - 1].position : ''}}</td>
       <td>
-        <img
-          (click)="changeStatus(user)"
-          class="toggle-status"
-          *ngIf="user.active"
-          src="assets/img/icons/toggle_on.svg"
-          alt="">
-        <img
-          (click)="changeStatus(user)"
-          class="toggle-status"
-          *ngIf="!user.active"
-          src="assets/img/icons/toggle_off.svg"
-          alt="">
+        <img (click)="changeStatus(user)" class="toggle-status" *ngIf="user.active" src="assets/img/icons/toggle_on.svg" alt="">
+        <img (click)="changeStatus(user)" class="toggle-status" *ngIf="!user.active" src="assets/img/icons/toggle_off.svg" alt="">
       </td>
       <td>
           <div class="datatable__actions">
-            <img
-              (click)="deleteUser(i)"
-              class="action"
-              src="assets/img/icons/trash-2.svg"
-              alt="">
-            <img
-              (click)="editUser(user)"
-              class="action"
-              src="assets/img/icons/edit.svg"
-              alt="">
+            <img (click)="deleteUser(i)" class="action" src="assets/img/icons/trash-2.svg" alt="">
+            <img (click)="editUser(user)" class="action" src="assets/img/icons/edit.svg" alt="">
           </div>
       </td>
     </tr>

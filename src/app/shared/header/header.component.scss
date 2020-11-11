@@ -1,15 +1,17 @@
 @import 'src/assets/sass/abstracts/variables';
-.header {
+%flex-center {
   display: flex;
   align-items: center;
+}
+.header {
+  @extend %flex-center;
   justify-content: space-between;
   height: 6.4rem;
   border-bottom: 1px solid $color-light-2;
   padding: 1rem 2.4rem;
 
   &__title {
-    display: flex;
-    align-items: center;
+    @extend %flex-center;
 
     img {
       width: 3rem;
@@ -25,8 +27,7 @@
   }
 
   &__menu {
-    display: flex;
-    align-items: center;
+    @extend %flex-center;
     padding: 0.8rem 1.5rem;
     background-color: $color-light-1;
     cursor: pointer;

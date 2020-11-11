@@ -23,7 +23,7 @@
         </div>
       </div>
       <h3 class="title--tertiary">Información básica</h3>
-      <form action="" #form="ngForm">
+      <form action="">
         <div class="form-row">
           <input [(ngModel)]="user.name" name="name" placeholder="Nombre" type="text" class="input">
           <input [(ngModel)]="user.fathersLastName" name="fathersLastName" type="text" placeholder="Apellido Paterno" class="input">
@@ -46,18 +46,8 @@
           </div>
           <div class="switch">
             <span class="switch__label">Inactivo</span>
-            <img
-              (click)="user.active = !user.active"
-              *ngIf="user.active"
-              class="switch__icon"
-              src="assets/img/icons/toggle_on.svg"
-              alt="">
-            <img
-            (click)="user.active = !user.active"
-              *ngIf="!user.active"
-              class="switch__icon"
-              src="assets/img/icons/toggle_off.svg"
-              alt="">
+            <img (click)="user.active = !user.active" *ngIf="user.active" class="switch__icon" src="assets/img/icons/toggle_on.svg" alt="">
+            <img (click)="user.active = !user.active" *ngIf="!user.active" class="switch__icon" src="assets/img/icons/toggle_off.svg" alt="">
             <span class="switch__label">Activo</span>
           </div>
         </div>

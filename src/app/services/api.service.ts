@@ -12,7 +12,6 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   getUsers() {
-    console.log('hoi');
     return this.http.get(`${this.baseUrl}users.json`);
   }
 

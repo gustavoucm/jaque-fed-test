@@ -11,6 +11,9 @@ export class UsersComponent implements OnInit {
   newUser = true;
   roles = [];
   modal = false;
+  rolValue = 0;
+  sortValue = 'desc';
+  search = '';
   headers = [
     {
       name: 'Foto'

@@ -1,4 +1,8 @@
 @import 'src/assets/sass/abstracts/variables';
+%flex-center {
+  display: flex;
+  align-items: center;
+}
 .form-row {
   display: flex;
   justify-content: space-between;
@@ -21,9 +25,8 @@
 }
 
 .switch {
-  display: flex;
+  @extend %flex-center;
   justify-content: center;
-  align-items: center;
   &__label {
     color: $color-gray-3;
   }
@@ -34,8 +37,7 @@
   }
 }
 .user-image {
-  display: flex;
-  align-items: center;
+  @extend %flex-center;
   margin: 2rem 0;
   position: relative;
 
