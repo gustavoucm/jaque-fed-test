@@ -110,7 +110,7 @@ form {
   &__current {
     padding: 0.5rem 1rem;
     border-radius: 100%;
-    color: $color-white;
+    color: $color-white !important;
     background-color: $color-blue ;
   }
 }
