@@ -121,3 +121,7 @@ form {
 .action:first-child {
   margin-right: 1rem;
 }
+
+.drag-icon:hover {
+  cursor: move;
+}

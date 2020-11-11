@@ -52,7 +52,7 @@
       </div>
     </form>
   </div>
-  <table class="datatable">
+  <table class="datatable" cdkDropList (cdkDropListDropped)="drop($event)">
     <tr class="datatable__header">
       <th></th>
       <th class="datatable__header-item" *ngFor="let header of headers;">
@@ -60,8 +60,9 @@
       </th>
       <th></th>
     </tr>
-    <tr class="datatable__row" *ngFor="let user of users | sortUser : sortValue | statusUser : rolValue | searchUser : search; let i = index;">
-      <td><img src="assets/img/icons/icon-drag.svg" alt=""></td>
+    <tr class="datatable__row" *ngFor="let user of users | sortUser : sortValue | statusUser : rolValue | searchUser : search; let i = index;"
+      cdkDrag>
+      <td><img class="drag-icon" src="assets/img/icons/icon-drag.svg" alt=""></td>
       <td>
         <img class="user__picture" [src]="user.picture" alt="">
       </td>

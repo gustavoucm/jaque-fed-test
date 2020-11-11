@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { DashboardComponent } from './layout/dashboard/dashboard.component';
 import { UsersComponent } from './pages/users/users.component';
 import { UsersModalComponent } from './pages/users-modal/users-modal.component';
@@ -12,8 +13,6 @@ import { StatusUserPipe } from '../pipes/status-user.pipe';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from '../app-routing.module';
-
-
 
 @NgModule({
   declarations: [
@@ -31,7 +30,8 @@ import { AppRoutingModule } from '../app-routing.module';
     CommonModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    DragDropModule
   ]
 })
 export class ComponentModule { }

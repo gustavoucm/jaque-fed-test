@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
-
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
@@ -90,5 +90,10 @@ export class UsersComponent implements OnInit {
     this.users.unshift(Object.assign({}, event));
     this.alert = true;
   }
+
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.users, event.previousIndex, event.currentIndex);
+  }
+    
 
 }
