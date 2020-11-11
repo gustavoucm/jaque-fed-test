@@ -3,6 +3,9 @@
   display: flex;
   align-items: center;
 }
+.modal__card {
+  max-width: 63rem;
+}
 .form-row {
   display: flex;
   justify-content: space-between;

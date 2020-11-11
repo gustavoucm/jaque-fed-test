@@ -11,6 +11,7 @@ export class UsersComponent implements OnInit {
   newUser = true;
   roles = [];
   modal = false;
+  modalList = false;
   rolValue = 0;
   sortValue = 'asc';
   alert = false;
@@ -94,6 +95,9 @@ export class UsersComponent implements OnInit {
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.users, event.previousIndex, event.currentIndex);
   }
-    
+
+  closeModalList(event) {
+    this.modalList = !event;
+  }
 
 }

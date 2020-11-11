@@ -13,6 +13,7 @@ import { StatusUserPipe } from '../pipes/status-user.pipe';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from '../app-routing.module';
+import { UsersModalListComponent } from './pages/users-modal-list/users-modal-list.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AppRoutingModule } from '../app-routing.module';
     TruncateTextPipe,
     SearchUserPipe,
     SortUserPipe,
-    StatusUserPipe
+    StatusUserPipe,
+    UsersModalListComponent,
   ],
   imports: [
     CommonModule,
